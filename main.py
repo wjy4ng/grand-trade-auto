@@ -11,7 +11,13 @@ class App:
         self.model.evaluate()
         
     def test(self):
-        pass
+        user_input = input("메일 제목을 입력하세요: ")
+        input_vec = self.model.vectorizer.transform({user_input})
+        pred = self.model.model.predict(input_vec)[0]
+        if pred == 1:
+            print("스팸")
+        else:
+            print("햄")
 
 
 if __name__ == "__main__":
