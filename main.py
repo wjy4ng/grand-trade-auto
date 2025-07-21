@@ -3,12 +3,12 @@ from src.model import model_init, model_training, model_evaluation
 
 class App:
     def __init__(self):
-        model_init()
+        self.df = read_csv_and_preprocessing()
+        self.X_train, self.X_test, self.y_train, self.y_test = model_init(self.df)
 
     def run(self):
-        self.df = read_csv_and_preprocessing()
-        model_training(self.df)
-        model_evaluation()
+        self.model = model_training(self.X_train, self.X_test, self.y_train, self.y_test)
+        model_evaluation(self.X_test, self.y_test, self.model)
         
     def test(self):
         pass
