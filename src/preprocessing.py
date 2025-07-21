@@ -7,5 +7,5 @@ def read_csv_and_preprocessing():
     spam = spam[['메일종류', '메일제목']]
 
     df = pd.concat([ham, spam], ignore_index=True)
-    df.to_csv('./CSV/ham_spam_list.csv', index=False)
+    # df.to_csv('./CSV/ham_spam_list.csv', index=False)
     return df
