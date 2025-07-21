@@ -209,3 +209,5 @@ __marimo__/
 # Mac OS Finder attributes
 .DS_Store
 *.DS_Store
+
+.cursorrules
