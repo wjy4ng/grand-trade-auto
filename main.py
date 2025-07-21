@@ -6,8 +6,8 @@ class App:
         model_init()
 
     def run(self):
-        read_csv_and_preprocessing()
-        model_training()
+        self.df = read_csv_and_preprocessing()
+        model_training(self.df)
         model_evaluation()
         
     def test(self):

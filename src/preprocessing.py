@@ -5,3 +5,5 @@ def read_csv_and_preprocessing():
 
     # 필요한 열만 추출
     df = df[['메일종류', '메일제목']]
+
+    return df
