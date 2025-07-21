@@ -1,5 +1,4 @@
-from src.read_csv import read_csv_file
-from src.preprocessing import data_preprocessing
+from src.preprocessing import read_csv_and_preprocessing
 from src.model import model_init, model_training, model_evaluation
 
 class App:
@@ -7,8 +6,7 @@ class App:
         model_init()
 
     def run(self):
-        read_csv_file()
-        data_preprocessing()
+        read_csv_and_preprocessing()
         model_training()
         model_evaluation()
         
