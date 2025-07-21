@@ -1,10 +1,10 @@
 from src.preprocessing import read_csv_and_preprocessing
-from src.model import SpamHamModel
+from src.model import HamSpamModel
 
 class App:
     def __init__(self):
         self.df = read_csv_and_preprocessing()
-        self.model = SpamHamModel(self.df)
+        self.model = HamSpamModel(self.df)
 
     def run(self):
         self.model.train()
