@@ -21,8 +21,8 @@ class HamSpamModel:
     def evaluate(self):
         if self.model is not None:
             from sklearn.metrics import confusion_matrix, classification_report
-            print(confusion_matrix(self.y_test, self.model.predict(self.X_test_vec)))
-            print(self.model.score(self.X_test_vec, self.y_test))
-            print(classification_report(self.y_test, self.model.predict(self.X_test_vec)))
+            print(confusion_matrix(self.y_test, self.model.predict(self.X_test_vec))) # 정답/오답 개수 표
+            print(self.model.score(self.X_test_vec, self.y_test)) # 정확도
+            print(classification_report(self.y_test, self.model.predict(self.X_test_vec))) # 정밀도, 재현율 등 상세 성능지표
         else:
             print("모델이 아직 학습되지 않았습니다.")
