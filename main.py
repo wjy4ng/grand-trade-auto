@@ -1,14 +1,14 @@
 from src.preprocessing import read_csv_and_preprocessing
-from src.model import model_init, model_training, model_evaluation
+from src.model import SpamHamModel
 
 class App:
     def __init__(self):
         self.df = read_csv_and_preprocessing()
-        self.X_train, self.X_test, self.y_train, self.y_test = model_init(self.df)
+        self.model = SpamHamModel(self.df)
 
     def run(self):
-        self.model = model_training(self.X_train, self.X_test, self.y_train, self.y_test)
-        model_evaluation(self.X_test, self.y_test, self.model)
+        self.model.train()
+        self.model.evaluate()
         
     def test(self):
         pass
