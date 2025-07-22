@@ -9,6 +9,10 @@ class UsedCarPredictModel:
     def __init__(self, df):
         print("\n--- 2. 모델링 시작 ---")
 
+        # 문자열로 변환 (오류 방지)
+        df['제조사'] = df['제조사'].astype(str)
+        df['모델명'] = df['모델명'].astype(str)
+
         # 벡터화 준비
         self.manufacturer_vec = CountVectorizer()
         self.model_vec = CountVectorizer()
@@ -18,7 +22,7 @@ class UsedCarPredictModel:
         model_features = self.model_vec.fit_transform(df['모델명'])
 
         # 수치형 데이터
-        numeric_features = df[['주행거리', '차량나이']].reset_index(drop=True)
+        numeric_features = df[['주행거리', '연식']].reset_index(drop=True)
 
         # 최종 입력 X 구성
         from scipy.sparse import hstack
@@ -55,7 +59,7 @@ class UsedCarPredictModel:
         # 벡터화
         manufacturer_features = self.manufacturer_vec.transform(input_df['제조사'])
         model_features = self.model_vec.transform(input_df['모델명'])
-        numeric_features = input_df[['주행거리', '차량나이']].reset_index(drop=True)
+        numeric_features = input_df[['주행거리', '연식']].reset_index(drop=True)
 
         from scipy.sparse import hstack
         X_input = hstack([manufacturer_features, model_features, numeric_features])
