@@ -2,8 +2,8 @@ from xgboost import XGBRegressor
 from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
+from scipy.sparse import hstack
 import numpy as np
-import pandas as pd
 
 class UsedCarPredictModel:
     def __init__(self, df):
@@ -25,7 +25,6 @@ class UsedCarPredictModel:
         numeric_features = df[['주행거리', '연식']].reset_index(drop=True)
 
         # 최종 입력 X 구성
-        from scipy.sparse import hstack
         X = hstack([manufacturer_features, model_features, numeric_features])
         y = df['가격']
 
@@ -60,8 +59,6 @@ class UsedCarPredictModel:
         manufacturer_features = self.manufacturer_vec.transform(input_df['제조사'])
         model_features = self.model_vec.transform(input_df['모델명'])
         numeric_features = input_df[['주행거리', '연식']].reset_index(drop=True)
-
-        from scipy.sparse import hstack
         X_input = hstack([manufacturer_features, model_features, numeric_features])
-
+        
         return self.model.predict(X_input)
