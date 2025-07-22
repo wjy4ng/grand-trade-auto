@@ -1,10 +1,10 @@
 from src.preprocessing import read_csv_and_preprocessing
-from src.model import HamSpamModel
+from src.model import UsedCarPredictModel
 
 class App:
     def __init__(self):
         self.df = read_csv_and_preprocessing()
-        self.model = HamSpamModel(self.df)
+        self.model = UsedCarPredictModel(self.df)
 
     def run(self):
         #self.model.train()

@@ -1,18 +1,22 @@
 from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction.text import CountVectorizer
+import pandas as pd
 
-class HamSpamModel:
+class UsedCarPredictModel:
     def __init__(self, df):
-        X = df['메일제목']
-        y = df['메일종류'].map({'햄': 0, '스팸': 1})
+        print("\n--- 2. 모델링 시작 ---")
+
+        # 2-1. 변수 정의
+        X = df.drop('가격', axis=1)
+        y = df['가격']
+
+        # 2-2. 학습, 검증, 테스트 데이터셋 분리
         X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
-        self.vectorizer = CountVectorizer()
-        self.X_train_vec = self.vectorizer.fit_transform(X_train)
-        self.X_test_vec = self.vectorizer.transform(X_test)
-        self.y_train = y_train
-        self.y_test = y_test
-        self.model = None
+        X_train, X_val, y_train, y_val = train_test_split(X_train, y_train, test_size=0.2, random_state=42)
+        print(f"\n학습 데이터셋 크기: {X_train.shape}")
+        print(f"검증 데이터셋 크기: {X_val.shape}")
+        print(f"테스트 데이터셋 크기: {X_test.shape}")
 
     def train(self):
         self.model = LogisticRegression()
