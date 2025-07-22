@@ -37,7 +37,7 @@ def read_csv_and_preprocessing():
     print(df[['연식', '주행거리', '가격']].head(3))
 
     # 1-5. XGBoost 사용을 위한 데이터 변환 (범주형 -> 숫자형)
-    for col in ['제조사', '모델명']:
+    for col in ['모델명']:
         le = LabelEncoder()
         df[col] = le.fit_transform(df[col])
     print("\n--- 최종 전처리 완료된 데이터 ---")
