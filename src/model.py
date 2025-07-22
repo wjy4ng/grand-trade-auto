@@ -26,3 +26,6 @@ class HamSpamModel:
             print(classification_report(self.y_test, self.model.predict(self.X_test_vec))) # 정밀도, 재현율 등 상세 성능지표
         else:
             print("모델이 아직 학습되지 않았습니다.")
+
+    def predict(self):
+        pass
