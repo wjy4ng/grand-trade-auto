@@ -36,13 +36,6 @@ def read_csv_and_preprocessing():
     print("\n--- 1-2. 데이터 형식 포맷 후 샘플 ---")
     print(df[['연식', '주행거리', '가격']].head(3))
 
-    # 1-4. 파생변수 생성
-    current_year = 2025
-    df['차량나이'] = current_year - df['연식']
-    df.drop('연식', axis=1, inplace=True)
-    print("\n'차량나이' 파생변수 생성 확인:")
-    print(df.head())
-
     # 1-5. XGBoost 사용을 위한 데이터 변환 (범주형 -> 숫자형)
     for col in ['제조사', '모델명']:
         le = LabelEncoder()

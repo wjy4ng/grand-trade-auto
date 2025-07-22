@@ -45,7 +45,7 @@ class UsedCarPredictModel:
 
     def predict(self, input_df):
         """
-        input_df: '제조사', '모델명', '주행거리', '차량나이' 컬럼을 가진 DataFrame
+        input_df: '제조사', '모델명', '주행거리', '연식' 컬럼을 가진 DataFrame
         return: 예측된 가격(np.ndarray)
         """
         if not hasattr(self, 'model') or self.model is None:
