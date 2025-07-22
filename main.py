@@ -18,6 +18,7 @@ class App:
             '모델명': "쏘렌토 하이브리드(MQ4) 1.6 HEV 4WD",
             '주행거리': 37091,
             '연식': 2023
+            # 실제 올라온 중고가: 4,390만원
         }])
         pred = self.model.predict(input_df)
         print("예측 결과:", pred)
