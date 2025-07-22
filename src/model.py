@@ -1,14 +1,13 @@
 from xgboost import XGBRegressor
 from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction.text import CountVectorizer
-import pandas as pd
 
 class UsedCarPredictModel:
     def __init__(self, df):
         print("\n--- 2. 모델링 시작 ---")
 
         # 2-1. 변수 정의
-        X = df[['제조사', '모델명', '주행거리', '차량나이']]
+        X = df[['제조사', '모델명', '주행거리', '연식']]
         y = df['가격']
 
         # 2-2. 학습, 검증, 테스트 데이터셋 분리
@@ -32,12 +31,12 @@ class UsedCarPredictModel:
 
     def predict(self, input_df):
         """
-        input_df: '제조사', '모델명', '주행거리', '차량나이' 컬럼을 가진 DataFrame
+        input_df: '제조사', '모델명', '주행거리', '연식' 컬럼을 가진 DataFrame
         return: 예측된 가격(np.ndarray)
         """
         if not hasattr(self, 'model') or self.model is None:
             print("모델이 아직 학습되지 않았습니다. 먼저 train()을 실행하세요.")
             return None
         # 입력 데이터에서 필요한 컬럼만 추출
-        X_input = input_df[['제조사', '모델명', '주행거리', '차량나이']]
+        X_input = input_df[['제조사', '모델명', '주행거리', '연식']]
         return self.model.predict(X_input)
