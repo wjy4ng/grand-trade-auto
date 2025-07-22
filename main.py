@@ -7,12 +7,14 @@ class App:
         self.model = HamSpamModel(self.df)
 
     def run(self):
-        self.model.train()
-        self.model.evaluate()
+        #self.model.train()
+        #self.model.evaluate()
+        #self.model.predict()
+        pass
         
     def test(self):
         user_input = input("메일 제목을 입력하세요: ")
-        input_vec = self.model.vectorizer.transform({user_input})
+        input_vec = self.model.vectorizer.transform([user_input])
         pred = self.model.model.predict(input_vec)[0]
         if pred == 1:
             print("스팸")
@@ -23,4 +25,4 @@ class App:
 if __name__ == "__main__":
     app = App()
     app.run()
-    app.test()
+    #app.test()
