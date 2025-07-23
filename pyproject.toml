@@ -13,4 +13,6 @@ dependencies = [
     "scikit-learn>=1.7.1",
     "selenium>=4.34.2",
     "xgboost>=3.0.2",
+    "django-cors-headers>=4.4.0",
+    "dotenv>=0.9.9",
 ]
