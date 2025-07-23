@@ -15,7 +15,7 @@ import {
 
 function App() {
   // 🧠 상태 정의
-  const [menufacturer, setMenufacturer] = useState("");
+  const [manufacturer, setManufacturer] = useState("");
   const [model, setModel] = useState("");
   const [year, setYear] = useState("");
   const [mileage, setMileage] = useState("");
@@ -23,7 +23,7 @@ function App() {
   // 🚀 버튼 클릭 시 실행할 함수
   const handleSubmit = async () => {
     const data = {
-      menufacturer,
+      manufacturer,
       model,
       year,
       mileage,
@@ -32,7 +32,7 @@ function App() {
     try {
       const response = await fetch(
         //"http://ec2-13-61-173-216.eu-north-1.compute.amazonaws.com/api/predict-price/predict/",
-        "localhost:8000/api/predict-price/predict/",
+        "http://localhost:8000/api/predict-price/predict/",
         {
           method: "POST",
           headers: {
@@ -48,6 +48,7 @@ function App() {
 
       toast(`${result.predicted_price}`);
     } catch (err) {
+      console.log(err);
       toast("오류", {
         description: "서버와 통신 중 오류가 발생했습니다.",
       });
@@ -71,11 +72,11 @@ function App() {
               </div>
               <div className="grid gap-2">
                 <div className="grid grid-cols-3 items-center gap-4">
-                  <Label htmlFor="Menufacturer">제조사</Label>
+                  <Label htmlFor="manufacturer">제조사</Label>
                   <Input
-                    id="menufacturer"
-                    value={menufacturer}
-                    onChange={(e) => setMenufacturer(e.target.value)}
+                    id="manufacturer"
+                    value={manufacturer}
+                    onChange={(e) => setManufacturer(e.target.value)}
                     placeholder="ex) BMW"
                     className="col-span-2 h-8"
                   />
