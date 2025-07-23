@@ -22,6 +22,7 @@ def predict_price(request):
                 '연식': int(data.get('year'))
             }])
             prediction = app.model.predict(input_df)
+            print(prediction)
             return JsonResponse({'predicted_price': prediction.tolist()})
         except Exception as e:
             return JsonResponse({'error': str(e)}, status=400)

@@ -31,13 +31,13 @@ ALLOWED_HOSTS = ['localhost', '.ngrok-free.app'] # AWS 인스턴스의 Public IP
 CORS_ALLOWED_ALL_ORIGINS = False
 CORS_ALLOWED_ORIGINS = [
     # EC2 Public IP
-    "https://*.ngrok-free.app",
-    "https://my-frontend.com", # Frontend Domain
+    "http://localhost:5173", # Frontend Domain
+    "https://*.ngrok-free.app", 
     # www 추가해서
 ]
 CSRF_TRUSTED_ORIGINS = [
+    "http://localhost:5173",
     "https://*.ngrok-free.app",
-    "https://my-frontend.com", # Frontend Domain
 ]
 
 # Application definition

@@ -15,7 +15,7 @@ except Exception as e:
 
 cars = []
 
-for page in range(1, 601):  # 1~600페이지
+for page in range(601, 912):  # 1~600페이지
     url = f"https://car.encar.com/list/car?page={page}&search=%7B%22type%22%3A%22car%22%2C%22action%22%3A%22(And.Hidden.N._.CarType.A.)%22%2C%22title%22%3A%22%EA%B5%AD%EC%82%B0%C2%B7%EC%88%98%EC%9E%85%22%2C%22toggle%22%3A%7B%7D%2C%22layer%22%3A%22%22%2C%22sort%22%3A%22MobileModifiedDate%22%7D"
     try:
         driver.get(url)
@@ -54,4 +54,4 @@ for page in range(1, 601):  # 1~600페이지
 driver.quit()
 
 df = pd.DataFrame(cars)
-df.to_csv("encar_cars.csv", index=True, index_label="번호")
+df.to_csv("encar_cars2.csv", index=True, index_label="번호")
