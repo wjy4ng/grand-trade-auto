@@ -22,7 +22,7 @@ def predict_price(request):
                 '연식': int(data.get('year'))
             }])
             prediction = app.model.predict(input_df)
-            return JsonResponse({'predicted_price': prediction})
+            return JsonResponse({'predicted_price': prediction.tolist()})
         except Exception as e:
             return JsonResponse({'error': str(e)}, status=400)
     return JsonResponse({'error': 'Only POST requests are accepted'}, status=405)
