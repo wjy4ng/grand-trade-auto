@@ -23,10 +23,18 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False # 배포 시 False
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = ['localhost', '*.ngrok.app'] # AWS 인스턴스의 Public IP
+CORS_ALLOWED_ALL_ORIGINS = False
+CORS_ALLOWED_ORIGINS = [
+    # EC2 Public IP
+    "https://my-frontend.com", # Frontend Domain
+    # www 추가해서
+]
+CSRF_TRUSTED_ORIGINS = [
+    "https://my-frontend.com", # Frontend Domain
+]
 
 # Application definition
 
@@ -37,11 +45,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'corsheaders', # CORS 설정
     'predict',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'corsheaders.middleware.CorsMiddleware', # CORS 설정
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
