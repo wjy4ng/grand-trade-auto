@@ -25,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True # 배포 시 False
+DEBUG = False # 배포 시 False
 
 ALLOWED_HOSTS = ['localhost', '.ngrok-free.app'] # AWS 인스턴스의 Public IP
 CORS_ALLOWED_ALL_ORIGINS = False
