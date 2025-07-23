@@ -45,7 +45,7 @@ function App() {
       if (!response.ok) throw new Error("서버 오류");
 
       const result = await response.json();
-      let carPrice = Math.floor(result.prediced_price);
+      let carPrice = Math.floor(result.predicted_price);
       toast(`예상 차량 가격: ${carPrice} 만원`);
     } catch (err) {
       console.log(err);
