@@ -23,12 +23,10 @@ jobs:
               # 기존 프로세스 종료
               pkill -f gunicorn || true
               
-              # 기존 프로젝트 삭제 및 새로 클론
               rm -rf grand-trade-auto
               git clone https://github.com/wjy4ng/grand-trade-auto.git
               cd grand-trade-auto
               
-              # Python 의존성 설치
               uv sync
               
               # 프론트엔드 빌드
@@ -40,10 +38,8 @@ jobs:
               cd ../server
               uv run manage.py migrate --noinput
               uv run manage.py collectstatic --noinput
-              
-              # Gunicorn 시작 (마지막에)
+            
               nohup uv run gunicorn --bind 0.0.0.0:8000 server.wsgi:application > gunicorn.log 2>&1 &
               
-              # Nginx 재시작
               sudo systemctl restart nginx
             EOF
