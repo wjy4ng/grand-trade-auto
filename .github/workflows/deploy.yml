@@ -39,6 +39,7 @@ jobs:
               uv run manage.py migrate --noinput
               uv run manage.py collectstatic --noinput
             
+              export DJANGO_SECRET_KEY=${{ secrets.DJANGO_SECRET_KEY }}
               nohup uv run gunicorn --bind 0.0.0.0:8000 server.wsgi:application > gunicorn.log 2>&1 &
               
               sudo systemctl restart nginx
