@@ -26,18 +26,15 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False # 배포 시 False
+EC2_INSTANCE = "ec2-51-21-193-143.eu-north-1.compute.amazonaws.com"
 
-ALLOWED_HOSTS = ['localhost', '.ngrok-free.app'] # AWS 인스턴스의 Public IP
+ALLOWED_HOSTS = ['localhost', EC2_INSTANCE] # AWS 인스턴스의 Public IP
 CORS_ALLOWED_ALL_ORIGINS = False
 CORS_ALLOWED_ORIGINS = [
-    # EC2 Public IP
-    "http://localhost:5173", # Frontend Domain
-    "https://*.ngrok-free.app", 
-    # www 추가해서
+    EC2_INSTANCE,
 ]
 CSRF_TRUSTED_ORIGINS = [
-    "http://localhost:5173",
-    "https://*.ngrok-free.app",
+    EC2_INSTANCE,
 ]
 
 # Application definition
