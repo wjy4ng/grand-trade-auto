@@ -5,6 +5,14 @@
   text-align: center;
 }
 
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* 스크롤 제거 */
+  height: 100%; /* 전체 높이 사용 */
+  width: 100%; /* 전체 너비 사용 */
+}
+
 .logo {
   height: 6em;
   padding: 1.5em;
