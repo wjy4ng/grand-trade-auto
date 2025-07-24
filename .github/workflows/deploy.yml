@@ -17,15 +17,12 @@ jobs:
             echo "${{ secrets.EC2_KEY }}" | base64 --decode > ./ec2_key.pem
             chmod 600 ./ec2_key.pem
 
-        - name: Deploy to EC2 instance - EC2 서버에 배포
-          run: |
-            scp -o StrictHostKeyChecking=no -i ./ec2_key.pem -r --exclude='.git' . ${{secrets.EC2_USER}}@${{ secrets.EC2_HOST }}:~/grand-trade-auto
-
         - name: EC2 환경 세팅 및 구동
           run: |
             ssh -i ec2_key.pem -o StrictHostKeyChecking=no ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }} << 'EOF'
-              cd /home/ubuntu/grand-trade-auto
-              cd server
+              rm -rf grand-trade-auto
+              git clone https://github.com/wjy4ng/grand-trade-auto.git
+              cd grand-trade-auto/server
               nohup gunicorn --bind 0.0.0.0:8000 server.wsgi:application > gunicorn.log 2>&1 &
               uv run manage.py migrate
               uv run manage.py collectstatic
