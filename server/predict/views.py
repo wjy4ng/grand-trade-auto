@@ -25,5 +25,6 @@ def predict_price(request):
             print(prediction)
             return JsonResponse({'predicted_price': prediction.tolist()})
         except Exception as e:
+            print(f"Error during prediction: {e}") # Add this line to print the error
             return JsonResponse({'error': str(e)}, status=400)
     return JsonResponse({'error': 'Only POST requests are accepted'}, status=405)
