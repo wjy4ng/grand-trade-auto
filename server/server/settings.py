@@ -27,8 +27,9 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False # 배포 시 False
 EC2_INSTANCE = "ec2-51-21-193-143.eu-north-1.compute.amazonaws.com"
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-ALLOWED_HOSTS = ['localhost', EC2_INSTANCE] # AWS 인스턴스의 Public IP
+ALLOWED_HOSTS = [EC2_INSTANCE] # AWS 인스턴스의 Public IP
 CORS_ALLOWED_ALL_ORIGINS = False
 CORS_ALLOWED_ORIGINS = [
     EC2_INSTANCE,
