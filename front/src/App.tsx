@@ -14,13 +14,11 @@ import {
 } from "@/components/ui/popover";
 
 function App() {
-  // 🧠 상태 정의
   const [manufacturer, setManufacturer] = useState("");
   const [model, setModel] = useState("");
   const [year, setYear] = useState("");
   const [mileage, setMileage] = useState("");
 
-  // 🚀 버튼 클릭 시 실행할 함수
   const handleSubmit = async () => {
     const data = {
       manufacturer,
@@ -58,8 +56,11 @@ function App() {
   return (
     <>
       <Toaster richColors position="top-center" />
-
-      <div className="grid place-items-center h-screen">
+      <div className="flex flex-col justify-center items-center h-screen gap-8">
+        <div className="text-center">
+          <h1 className="text-2xl font-bold">Grand Trade Auto</h1>
+          <p>AI 기반 중고차 가격 예측 서비스</p>
+        </div>
         <Popover>
           <PopoverTrigger asChild>
             <Button variant="outline">차량 정보 입력</Button>
