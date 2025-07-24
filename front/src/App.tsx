@@ -29,8 +29,7 @@ function App() {
 
     try {
       const response = await fetch(
-        //"http://ec2-13-61-173-216.eu-north-1.compute.amazonaws.com/api/predict-price/predict/",
-        "http://localhost:8000/api/predict-price/predict/",
+        "http://ec2-51-21-193-143.eu-north-1.compute.amazonaws.com/api/predict-price/predict/",
         {
           method: "POST",
           headers: {
