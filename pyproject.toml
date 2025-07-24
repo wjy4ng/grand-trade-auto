@@ -15,4 +15,5 @@ dependencies = [
     "xgboost>=3.0.2",
     "django-cors-headers>=4.4.0",
     "dotenv>=0.9.9",
+    "gunicorn>=23.0.0",
 ]
