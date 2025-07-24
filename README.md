@@ -9,12 +9,12 @@
 ![QR 코드](./asset/qr.jpg)
 <br>
 
-## Preview
-![Image](https://github.com/user-attachments/assets/cd2e4556-b1d3-46f8-a9b6-af2ac0a842cf)
-
 ## 🚗 프로젝트 소개 (Project Overview)
 
 **Grand-Trade-Auto**는 중고차 가격을 예측하는 웹 애플리케이션입니다. 사용자는 차량의 다양한 옵션(제조사, 모델, 연식, 주행거리 등)을 입력하고, AI 모델이 예측한 합리적인 중고차 가격을 확인할 수 있습니다.
+
+## Preview
+![Image](https://github.com/user-attachments/assets/cd2e4556-b1d3-46f8-a9b6-af2ac0a842cf)
 
 ## ✨ 주요 기능 (Features)
 
