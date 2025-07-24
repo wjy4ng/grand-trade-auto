@@ -33,10 +33,12 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 ALLOWED_HOSTS = [EC2_INSTANCE] # AWS 인스턴스의 Public IP
 CORS_ALLOWED_ALL_ORIGINS = False
 CORS_ALLOWED_ORIGINS = [
-    EC2_INSTANCE,
+    f"http://{EC2_INSTANCE}",
+    f"https://{EC2_INSTANCE}",
 ]
 CSRF_TRUSTED_ORIGINS = [
-    EC2_INSTANCE,
+    f"http://{EC2_INSTANCE}",
+    f"https://{EC2_INSTANCE}",
 ]
 
 # Application definition
