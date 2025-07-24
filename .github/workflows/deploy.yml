@@ -26,4 +26,8 @@ jobs:
               nohup gunicorn --bind 0.0.0.0:8000 server.wsgi:application > gunicorn.log 2>&1 &
               uv run manage.py migrate
               uv run manage.py collectstatic
+              cd ../front
+              npm install
+              npm run build
+              sudo systemctl restart nginx
             EOF
