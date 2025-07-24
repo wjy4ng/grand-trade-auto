@@ -25,8 +25,8 @@ jobs:
           run: |
             ssh -i ec2_key.pem -o StrictHostKeyChecking=no ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }} << 'EOF'
               cd /home/ubuntu/grand-trade-auto
-              source .venv/bin/activate
               cd server
               nohup gunicorn --bind 0.0.0.0:8000 server.wsgi:application > gunicorn.log 2>&1 &
+              uv run manage.py migrate
               uv run manage.py collectstatic
             EOF
