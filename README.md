@@ -5,7 +5,9 @@
 <br>
 ![Django](https://img.shields.io/badge/django-%23092E20.svg?style=for-the-badge&logo=django&logoColor=white)
 ![Selenium](https://img.shields.io/badge/-selenium-%43B02A?style=for-the-badge&logo=selenium&logoColor=white)
-
+<br>
+![QR 코드](./asset/qr.jpg)
+<br>
 ## 🚗 프로젝트 소개 (Project Overview)
 
 **Grand-Trade-Auto**는 중고차 가격을 예측하는 웹 애플리케이션입니다. 사용자는 차량의 다양한 옵션(제조사, 모델, 연식, 주행거리 등)을 입력하고, AI 모델이 예측한 합리적인 중고차 가격을 확인할 수 있습니다.
@@ -40,4 +42,3 @@
 ## 📊 데이터 출처 (Data Source)
 
 *   **[Encar](https://car.encar.com/)**: 모델 학습을 위한 중고차 데이터는 엔카 홈페이지에서 수집되었습니다.
-![QR 코드](./asset/qr.jpg)
