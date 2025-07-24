@@ -1,0 +1,51 @@
+name: 'Deploy to AWS EC2 Sevice'
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  gitaction-ec2-deploy:
+    runs-on: ubuntu-latest
+    steps:
+        - name: Repoitory Checkout code, 소스 가져오기 
+          uses: actions/checkout@v4
+
+        - name: Create SSH key file - pem 파일 생성
+          run: |
+            echo "${{ secrets.EC2_KEY }}" | base64 --decode > ./ec2_key.pem
+            chmod 600 ./ec2_key.pem
+
+        - name: 뒷정리
+          run: |
+            ssh -i ec2_key.pem -o StrictHostKeyChecking=no ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }} << 'EOF'
+            # 프로세스 종료
+            pkill -f app.py || true
+            # 디렉토리 삭제
+            rm -rf ~/app
+            # 가상환경
+            rm -rf ~/venv
+            EOF
+
+        - name: Deploy to EC2 instance - EC2 서버에 배포
+          run: |
+            scp -o StrictHostKeyChecking=no -i ./ec2_key.pem -r . ${{secrets.EC2_USER}}@${{ secrets.EC2_HOST }}:~/app
+
+        - name: EC2 환경 세팅 및 구동
+          run: |
+            ssh -i ec2_key.pem -o StrictHostKeyChecking=no ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }} << 'EOF'
+            # 작업 디렉토리 이동
+            cd ~/app
+            # 리눅스 업데이트 
+            sudo apt-get update
+            # 필요 패키지 설치
+            sudo apt-get install -y python3-pip python3-venv
+            # 가상환경 생성
+            python3 -m venv venv
+            # 가상환경 활성화
+            source venv/bin/activate
+            # 의존성 설치
+            pip install -r requirements.txt
+            # 백엔드 서버 실행
+            nohup python3 app.py > app.log 2>&1 &
