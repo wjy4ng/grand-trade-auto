@@ -14,6 +14,7 @@ print("Model ready.")
 def predict_price(request):
     if request.method == 'POST':
         try:
+            print(f"Request body: {request.body}") # Add this line
             data = json.loads(request.body)
             input_df = pd.DataFrame([{
                 '제조사': data.get('manufacturer'),
