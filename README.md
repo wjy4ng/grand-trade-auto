@@ -6,10 +6,6 @@
 ![Django](https://img.shields.io/badge/django-%23092E20.svg?style=for-the-badge&logo=django&logoColor=white)
 ![Selenium](https://img.shields.io/badge/-selenium-%43B02A?style=for-the-badge&logo=selenium&logoColor=white)
 <br>
-![QR 코드](./asset/qr.jpg)
-<br>
-
-## 🧑‍💻 Collaborators
 
 ## 🧑‍💻 Collaborators
 
@@ -19,6 +15,10 @@
     <td align="center"><a href="https://github.com/TaehyunJeon0203"><img src="https://avatars.githubusercontent.com/TaehyunJeon0203" width="100px;" alt=""/><br /><sub><b>TaehyunJeon</b></sub></a></td>
   </tr>
 </table>
+
+## 접속
+![QR 코드](./asset/qr.jpg)
+<br>
 
 ## Preview
 ![Image](https://github.com/user-attachments/assets/cd2e4556-b1d3-46f8-a9b6-af2ac0a842cf)
