@@ -9,6 +9,15 @@
 ![QR 코드](./asset/qr.jpg)
 <br>
 
+## 🧑‍💻 Collaborators
+
+<table>
+  <tr>
+    <td align="center"><a href="https://github.com/TaehyunJeon0203"><img src="https://avatars.githubusercontent.com/taehyun" width="100px;" alt=""/><br /><sub><b>taehyun</b></sub></a></td>
+    <td align="center"><a href="https://github.com/wjy4ng"><img src="https://avatars.githubusercontent.com/username2" width="100px;" alt=""/><br /><sub><b>username2</b></sub></a></td>
+  </tr>
+</table>
+
 ## Preview
 ![Image](https://github.com/user-attachments/assets/cd2e4556-b1d3-46f8-a9b6-af2ac0a842cf)
 
