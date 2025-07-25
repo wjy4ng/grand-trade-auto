@@ -16,7 +16,7 @@
 <table>
   <tr>
     <td align="center"><a href="https://github.com/wjy4ng"><img src="https://avatars.githubusercontent.com/wjy4ng" width="100px;" alt=""/><br /><sub><b>wjy4ng</b></sub></a></td>
-    <td align="center"><a href="https://github.com/TaehyunJeon0203"><img src="https://avatars.githubusercontent.com/TaehyunJeon" width="100px;" alt=""/><br /><sub><b>TaehyunJeon</b></sub></a></td>
+    <td align="center"><a href="https://github.com/TaehyunJeon0203"><img src="https://avatars.githubusercontent.com/TaehyunJeon0203" width="100px;" alt=""/><br /><sub><b>TaehyunJeon</b></sub></a></td>
   </tr>
 </table>
 
