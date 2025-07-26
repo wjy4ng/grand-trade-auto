@@ -16,10 +16,6 @@
   </tr>
 </table>
 
-## 접속
-![QR 코드](./asset/qr.jpg)
-<br>
-
 ## Preview
 ![Image](https://github.com/user-attachments/assets/cd2e4556-b1d3-46f8-a9b6-af2ac0a842cf)
 
